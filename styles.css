@@ -10,6 +10,7 @@ h1{
     top:15%;
     left:40%;
     transform:translate(-50%,-50%)
+    color: white;
   }
   span{
     position:absolute;
