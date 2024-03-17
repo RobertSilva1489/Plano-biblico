@@ -6,11 +6,12 @@ body{
     background-size: 100% 100%;
 }  
 h1{
+    color: white;
     position:absolute;
     top:15%;
     left:40%;
     transform:translate(-50%,-50%)
-    color: white;
+    
   }
   span{
     position:absolute;
