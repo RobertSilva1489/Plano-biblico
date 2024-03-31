@@ -31,8 +31,8 @@
 
         <!-- Adicione mais imagens conforme necessário -->
     </div>
-    <!--<button class="prevBtn">Anterior</button>
-    <button class="nextBtn">Próximo</button> -->
+    <button class="prevBtn">Anterior</button>
+    <button class="nextBtn">Próximo</button>
 </div>
 <style>
     body {
@@ -41,40 +41,42 @@
 </style>
 
 <script>
-let counter = 1;
-const size = document.querySelector('.carousel-img').clientWidth;
-const carouselSlide = document.querySelector('.carousel-slide');
-const images = document.querySelectorAll('.carousel-img');
+window.addEventListener('load', () => {
+  let counter = 1;
+  const images = document.querySelectorAll('.carousel-img');
+  const size = images[0].clientWidth;
+  const carouselSlide = document.querySelector('.carousel-slide');
 
-// Inicializa a posição do carrossel
-carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-
-// Botões
-document.querySelector('.nextBtn').addEventListener('click',()=>{
-  if(counter >= images.length - 1) return;
-  carouselSlide.style.transition = "transform 0.4s ease-in-out";
-  counter++;
+  // Inicializa a posição do carrossel
   carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-});
 
-document.querySelector('.prevBtn').addEventListener('click',()=>{
-  if(counter <= 0) return;
-  carouselSlide.style.transition = "transform 0.4s ease-in-out";
-  counter--;
-  carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-});
+  // Botões
+  document.querySelector('.nextBtn').addEventListener('click', () => {
+    if (counter >= images.length - 1) return;
+    carouselSlide.style.transition = "transform 0.4s ease-in-out";
+    counter++;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+  });
 
-carouselSlide.addEventListener('transitionend', () => {
-  if(images[counter].id === 'lastClone'){
-    carouselSlide.style.transition = "none";
-    counter = images.length -2;
+  document.querySelector('.prevBtn').addEventListener('click', () => {
+    if (counter <= 0) return;
+    carouselSlide.style.transition = "transform 0.4s ease-in-out";
+    counter--;
     carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-  }
-  if(images[counter].id === 'firstClone'){
-    carouselSlide.style.transition = "none";
-    counter = images.length - counter;
-    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
-  }
+  });
+
+  carouselSlide.addEventListener('transitionend', () => {
+    if (images[counter].id === 'lastClone') {
+      carouselSlide.style.transition = "none";
+      counter = images.length - 2;
+      carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    }
+    if (images[counter].id === 'firstClone') {
+      carouselSlide.style.transition = "none";
+      counter = 1;
+      carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    }
+  });
 });
 </script>
 
