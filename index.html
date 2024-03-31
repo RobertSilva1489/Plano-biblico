@@ -14,5 +14,69 @@
         <h1>Clique abaixo para fazer o download do plano de leitura bíblica anual</h1>
         <a href="PLANO DE LEITURA BÍBLICA ANUAL 24-25.pdf" download class="download-button">Clique aqui</a>
     </div>
+	<div class="carousel-container">
+    <div class="carousel-slide">
+        <img src="ABRIL.jpg" class="carousel-img">
+        <img src="MAIO.jpg" class="carousel-img">
+        <img src="JUNHO.jpg" class="carousel-img">
+        <img src="JULHO.jpg" class="carousel-img">
+        <img src="AGOSTO.jpg" class="carousel-img">
+        <img src="SETEMBRO.jpg" class="carousel-img">
+        <img src="OUTUBRO.jpg" class="carousel-img">
+        <img src="NOVEMBRO.jpg" class="carousel-img">
+        <img src="DEZEMBRO.jpg" class="carousel-img">
+        <img src="JANEIRO.jpg" class="carousel-img">
+        <img src="FEVEREIRO.jpg" class="carousel-img">
+        <img src="MARÇO.jpg" class="carousel-img">
+
+        <!-- Adicione mais imagens conforme necessário -->
+    </div>
+    <button class="prevBtn">Anterior</button>
+    <button class="nextBtn">Próximo</button>
+</div>
+<style>
+    body {
+        background-color: #AA8A4D;
+    }
+</style>
+
+<script>
+let counter = 1;
+const size = document.querySelector('.carousel-img').clientWidth;
+const carouselSlide = document.querySelector('.carousel-slide');
+const images = document.querySelectorAll('.carousel-img');
+
+// Inicializa a posição do carrossel
+carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+// Botões
+document.querySelector('.nextBtn').addEventListener('click',()=>{
+  if(counter >= images.length - 1) return;
+  carouselSlide.style.transition = "transform 0.4s ease-in-out";
+  counter++;
+  carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+});
+
+document.querySelector('.prevBtn').addEventListener('click',()=>{
+  if(counter <= 0) return;
+  carouselSlide.style.transition = "transform 0.4s ease-in-out";
+  counter--;
+  carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+});
+
+carouselSlide.addEventListener('transitionend', () => {
+  if(images[counter].id === 'lastClone'){
+    carouselSlide.style.transition = "none";
+    counter = images.length -2;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+  }
+  if(images[counter].id === 'firstClone'){
+    carouselSlide.style.transition = "none";
+    counter = images.length - counter;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+  }
+});
+</script>
+
 </body>
 </html>

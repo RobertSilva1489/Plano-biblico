@@ -61,3 +61,42 @@ h1 {
       font-size: 14px;
   }
 }
+
+/* Estilos do Carrossel */
+.carousel-container {
+  max-width: 600px;
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: flex;
+}
+
+.carousel-img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Botões de navegação */
+.prevBtn, .nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 100;
+}
+
+.prevBtn {
+  left: 10px;
+}
+
+.nextBtn {
+  right: 10px;
+}
+
