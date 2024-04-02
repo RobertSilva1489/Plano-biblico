@@ -35,10 +35,27 @@
     <button class="prevBtn">Anterior</button>
     <button class="nextBtn">Próximo</button>
 </div>
+<div class="youtube-video-container">
+  <iframe src="https://www.youtube.com/embed/UXOw1HZdf8Y?si=xiqW58T8Qd151j0T&amp;list=PLvT8l2DKpfNuOGmZftwZhBkSrtvKvFnCB" title="Plano de leitura bíblica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 <style>
     body {
         background-color: #AA8A4D;
     }
+    .youtube-video-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* Proporção 16:9 */
+        height: 0;
+    }
+    .youtube-video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 25%;
+        width: 50%;
+        height: 50%;
+    }
+
 </style>
 
 <script>
