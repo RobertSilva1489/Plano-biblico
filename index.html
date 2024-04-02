@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html> 
 <head> 
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E8KHFD14PX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E8KHFD14PX');
+</script>
     <title>Plano de leitura bíblica</title>
     <meta name="description" content="Plano de leitura bíblica Ebenezer">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +19,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+  <nav class="navbar">
+    <ul>
+        <li><a href="#carousel-container">Calendário</a></li>
+        <li><a href="#youtube-video-container">Comentário sobre o texto</a></li>
+    </ul>
+</nav>
+    <div id="download-section" class="container">
         <h1>Clique para fazer o download do plano de leitura bíblica ou veja o calendário abaixo</h1>
         <a href="PLANO DE LEITURA BÍBLICA ANUAL 24-25.pdf" download class="download-button">Clique aqui</a>
     </div>
-	<div class="carousel-container">
+	<div id="carousel-container" class="carousel-container">
     <div class="carousel-slide">
         <img src="ABRIL.jpg" class="carousel-img">
 	<img src="ABRIL.jpg" class="carousel-img">
@@ -35,13 +50,51 @@
     <button class="prevBtn">Anterior</button>
     <button class="nextBtn">Próximo</button>
 </div>
-<div class="youtube-video-container">
+<div id="youtube-video-container" class="youtube-video-container">
   <iframe src="https://www.youtube.com/embed/UXOw1HZdf8Y?si=xiqW58T8Qd151j0T&amp;list=PLvT8l2DKpfNuOGmZftwZhBkSrtvKvFnCB" title="Plano de leitura bíblica" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 <style>
+.navbar {
+    background-color: #333; /* Cor de fundo da barra de navegação */
+    overflow: hidden; /* Garante que o conteúdo da navbar não ultrapasse o seu container */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove os bullets da lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Dispõe os itens da lista horizontalmente */
+    justify-content: center; /* Centraliza os itens da lista */
+}
+
+.navbar ul li {
+    float: left;
+}
+
+.navbar ul li a {
+    display: block;
+    color: white; /* Cor do texto */
+    text-align: center;
+    padding: 14px 20px; /* Espaçamento dentro dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+/* Muda a cor de fundo dos itens da navbar ao passar o mouse */
+.navbar ul li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Ajustes no iframe para evitar sobreposição */
+.youtube-video-container iframe {
+    height: 100%; /* Altura ajustada para cobrir completamente o espaço designado */
+}
+
     body {
         background-color: #AA8A4D;
-    }
+        
+}
+    
     .youtube-video-container {
         position: relative;
         width: 100%;
@@ -50,7 +103,7 @@
     }
     .youtube-video-container iframe {
         position: absolute;
-        top: 0;
+        top:0;
         left: 5%;
         width: 90%;
         height: 90%;
